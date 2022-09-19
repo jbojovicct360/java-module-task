@@ -1,8 +1,13 @@
 package org.example;
 
+import org.example.io.Reader;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.solution("QAWABAWONL"));
+    public static void main(String[] args) throws Exception {
+        Reader reader = new Reader();
+        reader.read();
     }
 }
