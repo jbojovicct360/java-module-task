@@ -17,4 +17,12 @@ public class Writer {
         }
     }
 
+    public static void writeIntoInput(String word) {
+        try (FileWriter fileWriter = new FileWriter("input.txt", true)) {
+            fileWriter.write(word);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

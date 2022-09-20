@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Reader {
 
@@ -35,4 +37,19 @@ public class Reader {
         }
     }
 
+    public List<String> getValuesFromInputFile() {
+        List<String> fileValues = new ArrayList<>();
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader("input.txt"))) {
+            String line = bufferedReader.readLine();
+            while(line != null && hasNumbers(line)) {
+                fileValues.add(line);
+                line = bufferedReader.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return fileValues;
+    }
 }

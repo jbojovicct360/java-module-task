@@ -3,16 +3,21 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(MockitoJUnitRunner.class)
 public class Tests {
 
-    private Solution solution;
+    @InjectMocks
+    private Solution solution = new Solution();
 
     @Before
     public void beforeTest() {
-        solution = new Solution();
         System.out.println("Execution of Balloon task function started!");
     }
 
