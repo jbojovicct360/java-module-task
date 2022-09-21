@@ -17,6 +17,14 @@ public class Writer {
         }
     }
 
+    public static void writeString(String string) {
+        try (FileWriter fileWriter = new FileWriter("output.txt", true)) {
+            fileWriter.write(string + '\n');
+        } catch (IOException e) {
+            System.out.println(e.getClass().getSimpleName() + " : " + e.getMessage());
+        }
+    }
+
     public static void writeIntoInput(String word) {
         try (FileWriter fileWriter = new FileWriter("input.txt", true)) {
             fileWriter.write(word);

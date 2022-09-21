@@ -1,0 +1,5 @@
+Thread: pool-1-thread-4 - File: input4.txt - Word to find: BALLOON - String to find word: ONLABLABLOON - Solution: 1
+Thread: pool-1-thread-5 - File: input5.txt - Word to find: BALLOON - String to find word: BALLOONBALLOON - Solution: 2
+Thread: pool-1-thread-3 - File: input3.txt - Word to find: BALLOON - String to find word: QAWABAWONL - Solution: 0
+Thread: pool-1-thread-2 - File: input2.txt - Word to find: cat - String to find word: cagtacgt - Solution: 2
+Thread: pool-1-thread-1 - File: input1.txt - Word to find: BALLOON - String to find word: BAONXXOLL - Solution: 1
