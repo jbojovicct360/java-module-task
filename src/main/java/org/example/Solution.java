@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.HashMap;
+
 public class Solution {
 
     private int[] countBalloonLetters(String s) {
@@ -54,6 +56,33 @@ public class Solution {
         for (int i = 0; i < wordLength; i++) {
             if (secondWordChar[(int) word.charAt(i)] != 0) {
                 int currentLetterAccurance = firstWordChar[(int) word.charAt(i)] / secondWordChar[(int) word.charAt(i)];
+                count = count > currentLetterAccurance ? currentLetterAccurance : count;
+            }
+        }
+        return count;
+    }
+
+    private HashMap<Character, Integer> getCharsFromStringHashMap(String s) {
+        HashMap<Character, Integer> characters = new HashMap<>();
+        int stringLenght = s.length();
+        for (int i = 0; i < stringLenght; i++) {
+            if(characters.containsKey(s.charAt(i))) {
+                int value = characters.get(s.charAt(i)).intValue();
+                characters.replace(s.charAt(i), ++value);
+            } else {
+                characters.put(s.charAt(i), 1);
+            }
+        }
+        return characters;
+    }
+    public int twoWordsHashMapSolution(String wordFromChar, String word) {
+        HashMap<Character, Integer> word1 = getCharsFromStringHashMap(wordFromChar);
+        HashMap<Character, Integer> word2 = getCharsFromStringHashMap(word);
+        int count = Integer.MAX_VALUE;
+        int wordLength = word.length();
+        for (int i = 0; i < wordLength; i++) {
+            if(word1.containsKey(word.charAt(i)) && word2.get(word.charAt(i)).intValue() != 0) {
+                int currentLetterAccurance = word1.get(word.charAt(i)).intValue() / word2.get(word.charAt(i)).intValue();
                 count = count > currentLetterAccurance ? currentLetterAccurance : count;
             }
         }

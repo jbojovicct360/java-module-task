@@ -2,16 +2,11 @@ import org.example.Solution;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(MockitoJUnitRunner.class)
 public class SolutionTest {
 
-    @InjectMocks
     private Solution solution = new Solution();
 
     @Before
@@ -37,6 +32,25 @@ public class SolutionTest {
         assertEquals(2, solution.twoWordsSolution("cssatllacggt", "cat"));
         assertEquals(0, solution.twoWordsSolution("123411", "abc"));
         assertEquals(2, solution.twoWordsSolution("abcabc", "abc"));
+    }
+
+    @Test
+    public void twoWordHashMapSolution() {
+        assertEquals(2, solution.twoWordsHashMapSolution("cssatllacggt", "cat"));
+    }
+
+    @Test
+    public void methodPerformanceTest() {
+        long startTime = System.nanoTime();
+        solution.twoWordsSolution("cssatllacggt", "cat");
+        long endTime = System.nanoTime();
+        long firstMethodTime = endTime - startTime;
+        startTime = System.nanoTime();
+        solution.twoWordsHashMapSolution("cssatllacggt", "cat");
+        endTime = System.nanoTime();
+        long secondMethodTime = endTime - startTime;
+        System.out.println("First method execution time (in nano): " + firstMethodTime);
+        System.out.println("Second method execution time (in nano): " + secondMethodTime);
     }
 
 }
